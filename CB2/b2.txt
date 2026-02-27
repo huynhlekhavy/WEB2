@@ -1,0 +1,114 @@
+🛎️Câu lệnh rẽ nhánh If Else
+<1> Câu lệnh if
+- Kiểm tra điều kiện biểu thức bên trong cặp dấu ngoặc đơn (), nếu kết quả là true thì một khối code sẽ được thực thi
+- Cú pháp:
+if (condition) {
+    // nếu điều kiện đúng thì thực hiện
+}
+- condition (điều kiện) là mệnh đề điều kiện và luôn luôn phải có một trong hai giá trị là true/false hoặc giá trị tương đương như:
++ NULL, Rỗng, số 0 ->false
++ Số khác 0 -> true 
+<2> Câu lệnh if else
+- Lệnh else sẽ được thực thi nếu lệnh if không được thực hiện, tức là điều kiện ở condition sẽ có giá trị là false 
+- Khi dùng lệnh else thì bắt buộc phải có 1 lệnh if đứng trước nó
+- Cú pháp:  
+if (condition) {
+    // Code cho lệnh if 
+} else {
+    // Code cho lệnh else
+}
+<3> Kết hợp nhiều lệnh if else
+- Cú pháp:
+if (condition1) {
+    // Code cho lệnh if 1
+} else if (condition2) {
+    // Code cho lệnh if 2
+} else {
+    // Code cho lệnh else 
+}
+<4> Toán tử 3 ngôi - Ternary operator
+- Rút gọn câu lệnh if else bằng cách dùng toán tử rẽ nhánh ? (hoặc có thể gọi là toán tử dấu hỏi)
+- Cú pháp: var result = condition ? value1 : value2;
+condition: điều kiện cần kiểm tra
+value1: trả về giá trị value1 nếu điều kiện condition là true
+value2: trả về giá trị value2 nếu điều kiện condition là false
+🛎️Switch Case
+- Lệnh switch case có công dụng giống như lệnh if else đó đều dùng để rẽ nhánh chương trình
+- Ứng với mỗi nhánh sẽ có một điều kiện cụ thể và điều kiện đó phải sử dụng toán tử so sánh bằng
+- Còn đối với lệnh if else thì bạn có thể truyền vào một mệnh đề bất kì và sử dụng nhiều toán tử khác nhau
+- Cú pháp: 
+switch (variable) {
+    case value_1:
+        // do something
+        break;
+    case value_2:
+        // do something
+        break;
+    default:
+        // do something
+        break;
+}
+- Trường hợp bỏ break đi thì câu lệnh sẽ chạy tiếp xuống case tiếp theo, đến case nào có break thì dừng lại
+- Trường hợp k có default thì nếu rơi vào trường hợp này sẽ k in ra gì
+- Ta cũng có thể gom nhóm case lại
+🛎️Vòng lặp For
+- Dùng để lặp lại việc thực thi một đoạn mã nào đó một số lần
+- Cú pháp: for (bienkhoitao; dieukienthucthi; buocnhay) { 
+    // code
+}
+bienkhoitao: là giá trị khởi tạo ban đầu của vòng lặp
+dieukienthucthi: là điều kiện mà vòng lặp được phép chạy (nếu bỏ trống sẽ bị lặp vô tận)
+buocnhay: là khoảng đệm nhảy của mỗi vòng lặp
+🛎️Vòng lặp For In
+- Dùng để lấy ra key của một object (cũng có thể áp dụng cho array, string)
+- Cú pháp:
+for (key in object) {
+    // code
+}
+key: là tên biến (đặt tên gì cũng được)
+object: là một object, mỗi key sẽ tương ứng với key ở trong object
+🛎️Vòng lặp For Of
+- Dùng để lấy ra phần tử của một array, string
+- Không áp dụng được với object
+- Cú pháp:
+for (variable of iterable) {
+    // code 
+}
+variable: là tên biến lấy giá các giá trị trong mảng
+iterable: là một mảng hoặc string, mỗi variable sẽ tương ứng với từng giá trị ở trong mảng hoặc string
+🛎️Vòng lặp While
+<1> While
+- Luôn luôn kiểm tra điều kiện trước, nếu thoả mãn mới chạy vào trong vòng lặp
+- Cú pháp: 
+while (condition) {
+    // code 
+}
+condition: là điều kiện thực hiện vòng lặp
+- Khi condition true thì code được thực thi và ngược lại, khi condition false thì vòng lặp kết thúc
+<2> do…while
+- Luôn thực hiện ít nhất một lượt lặp sau đó mới kiểm tra điều kiện lặp
+- Cú pháp:
+do {
+    // code
+} while (condition);
+condition: là điều kiện thực hiện vòng lặp
+- Khi condition true thì code được thực thi và ngược lại
+🛎️Break
+- Có tác dụng dừng vòng lặp cho dù điều kiện vòng lặp vẫn đang đúng
+🛎️Continue
+- Có tác dụng bỏ qua một bước lặp nào đó, nghĩa là gặp lệnh continue thì all những đoạn code nằm bên dưới sẽ không được thực hiện mà nó sẽ nhảy sang vòng lặp mới luôn
+🛎️Các cách khai báo biến
+* Từ khoá var
+- Phạm vi truy cập toàn cục
+- Cú pháp: var tenBien = giaTri;
+* Từ khoá let
+- Chỉ có phạm vi trong khối khai báo
+- Vì vậy nó sẽ tối ưu trong trường hợp bạn cần khai báo một biến chỉ sử dụng tạm thời trong một phạm vi nhất định. Phạm vi này ta hay gọi là block scope
+- Cú pháp: let tenBien = giaTri;
+* Từ khoá const
+- Chỉ có phạm vi trong khối khai báo
+- const là hằng số vì vậy khi khai báo biến const thì bạn phải gán giá trị cho nó luôn, sau này cũng không thể thay đổi giá trị cho biến
+- Cú pháp: const tenBien = giaTri;
+* Khai báo biến k cần dùng từ khoá
+- Chỉ nên sử dụng cách này khi muốn gán lại giá trị của một biến
+- Cú pháp: tenBien = giaTri;
