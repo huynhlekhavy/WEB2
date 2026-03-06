@@ -1,9 +1,9 @@
 // DOM Events
 // onload
-// window.onload = function() {
-//     const menu = document.querySelector("#menu");
-//     console.log(menu);
-// }
+window.onload = function() {
+    const menu = document.querySelector("#menu");
+    console.log(menu);
+}
 // End onload
 
 // onblur and onfocus
