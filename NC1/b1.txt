@@ -1,0 +1,90 @@
+🍭Scope
+- Scope là phạm vi truy cập, nó đề cập đến ngữ cảnh của đoạn code
+- Có 2 kiểu phạm vi là:
++ Phạm vi toàn cục (global): Một biến nằm ở phạm vi toàn cục thì biến đó được sử dụng ở đâu cũng được
++ Phạm vi cục bộ (local): Một biến được khai báo trong một hàm thì biến này là biến cục bộ, và chỉ sử dụng được ở trong hàm đó
+🍭Hoisting
+* Biến trong hoisting:
++ Hoisting nghĩa là có thể sử dụng 1 biến xong sau đó mới cần khai báo biến đó
++ Javascript sẽ di chuyển toàn bộ các khai báo biến lên đầu chương trình. Vì vậy, những dòng code có sử dụng biến mà chưa khai báo sẽ không bị lỗi
+* Từ khoá let, const, var trong hoisting
+- Sử dụng var: Nếu biến chưa gán giá trị thì sẽ trả về undefined
+- Sử dụng let hoặc const
++ Nếu biến chưa gán giá trị thì sẽ xuất hiện thông báo lỗi “a is not defined”
++ Lỗi này muốn nói rằng biến a chưa được định nghĩa
+* Hàm trong hoisting
+- Declaration Function
++ Có tính hosting
++ Cú pháp: function tenHam() {}
+- Expression Function
++ Không có tính hosting
++ Cú pháp: var tenBien = function() {}
+- Arrow Function
++ Không có tính hoisting
++ Cú pháp: var tenBien = () => {}
+* Strict Mode 
+- Là chế độ code nghiêm ngặt, nó bắt buộc lập trình viên phải tuân thủ theo quy tắc mà javascript đưa ra. Các lỗi cơ bản thường gặp như khai báo trùng tên biến và trùng tên hàm, sử dụng biến mà chưa định nghĩa 
+- Để sử dụng strict mode ta khai báo "use strict"; ở trước vị trí mà ta muốn sử dụng
+- Có 2 kiểu Strict Mode
++ Strict mode toàn cục: Khai báo bên ngoài cùng
++ Strict mode cục bộ: Khai báo bên trong một hàm 
+🍭Từ khoá “this”
+- This trong Javascript
++ Từ khoá this sẽ trỏ về đối tượng mà nó đang thuộc về 
++ Trong javascript, bạn có thể đặt this ngay cấp ngoài cùng của chương trình, vì đối tượng cao nhất chính là đối tượng Windows, nên kết quả là từ khóa this sẽ trỏ đến đối tượng windows 
+- This trong javascript function 
++ Trường hợp 1: Nếu không bật chế độ strict mode thì javascript sẽ hiểu this là một biến toàn cục, và cấp cao nhất chính là đối tượng window
++ Trường hợp 2: Nếu bật chế độ strict mode thì từ khóa this trong hàm là một biến chưa được định nghĩa, nên giá trị của nó là undefined
+- This trong các sự kiện javascript
++ Khi gán hành động cho các sự kiện javascript thì this chính là đối tượng html đang được gán sự kiện đó (this sẽ trỏ về đối tượng trước dấu chấm)
+- This trong javascript object
++ Từ khoá this sẽ trỏ về đối tượng mà nó đang thuộc về (trước dấu chấm)
+- This trong arrow function
++ Arrow function không tồn tại đối tượng this
++ Khi sử dụng this sẽ lấy đối tượng window
+🍭Modules
+* Module trong Javascript là gì?
+- Một module là một file javascript bình thường
+- File đó đặt tên có ý nghĩa dựa trên các dòng code bên trong cũng phục vụ cho cái tên ý nghĩa đó 
+- Ví dụ: file sum.js sẽ chứa hàm tính tổng bên trong
+- Việc phân chia thành từng module (tức là từng file) và mỗi module có một công dụng giúp cho quá trình code nhanh hơn, mạch lạc hơn, tái sử dụng ở nhiều nơi
+* Khai báo và sử dụng module
+- Khai báo module
++ Dùng từ khoá export
++ Để đặt đằng trước hàm hoặc biến cho phép file khác sử dụng
++ Cú pháp: export function temHam() {//Code}
+- Sử dụng module
++ Dùng từ khoá import
++ Để gọi đến dữ liệu từ một module khác
++ Cú pháp: import { temHam } from “duong_dan_file.js”;
+* Đổi tên dữ liệu của module trong javascript
+- Có một số trường hợp bạn phải đổi tên module
++ Muốn rút gọn tên cho đỡ dài
++ Trong trường hợp source code của bạn đã tồn tại tên đó, thì phải thay đổi tên để tránh bị trùng tên
+- Cách 1: Đổi tên trong file module
+// Trong file module
+export { oldName as newName };
+// Trong file cần dùng đến module đó
+import { newName } from “duong_dan_file.js”;
+Cách 2: Đổi tên trong file import
+import { oldName as newName } from “duong_dan_file.js”;
+* Default export module
+- Là cách khai báo một dữ liệu export mặc định, trong trường hợp gọi đến một hàm hoặc một biến mà không tồn tại trong module thì sẽ trả về dữ liệu default này 
+- Mỗi file chỉ có 1 hàm (hoặc 1 biến) được export default
+- Cú pháp:
+// Trong file module
+export default function temHam() {}
+// Trong file cần dùng đến module đó
+import tenHam from “duong_dan_file.js”;
+🍭JSON
+* Khái niệm
+- JSON viết tắt của JavaScript Object Notation
+- Là một định dạng dữ liệu được lưu dưới dạng chuỗi
+- Chỉ cho phép các kiểu dữ liệu cơ bản: number, string, boolean, array, object, null
+- Không cho phép: function, date, undefined
+- Trường hợp giá trị của JSON là dạng Object thì:
++ Mỗi thông tin dữ liệu sẽ có 2 phần đó là key và value
++ key: nên đặt tên giống đặt tên biến trong JavaScript
++ key: bắt buộc phải đặt trong dấu nháy kép, nếu bạn đặt nó trong dấu nháy đơn thì đây không phải là một chuỗi JSON đúng chuẩn
++ Nếu có nhiều dữ liệu(nhiều cặp key => value) thì ta dùng dấu phẩy(,) để ngăn cách
++ Không có dấu phẩy ở cặp key/value cuối cùng
